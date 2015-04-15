@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xqx="urn:milconuman:schemas:xqxslt"
+            targetNamespace="urn:milconuman:schemas:xqxslt" elementFormDefault="qualified">
+  <xsd:element name="TransformationMessage">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="TestCase" type="xsd:string"/>
+        <xsd:element name="TransformationLanguage" type="xqx:tTransformation"/>
+        <xsd:element name="Payload">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:any namespace="##any" processContents="skip"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="tTransformation">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="XQUERY">
+        <!--Regular (fixed) XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="XSLT#">
+        <!--Regular (fixed) XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="DYXQU">
+        <!--Dynamic XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="DYXSL">
+        <!--Dynamic XSLT resource-->
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

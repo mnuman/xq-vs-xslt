@@ -1,0 +1,40 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="XqXslt"
+     targetNamespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt"
+     xmlns:tns="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt"
+     xmlns:inp1="urn:milconuman:schemas:xqxslt"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:milconuman:schemas:xqxslt" schemaLocation="XqXslt.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="input" element="inp1:TransformationMessage"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="output" element="inp1:TransformationMessage"/>
+    </wsdl:message>
+    <wsdl:portType name="transform_ptt">
+        <wsdl:operation name="transform">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="transform_bind" type="tns:transform_ptt">
+        <soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"/>
+        <wsdl:operation name="transform">
+            <soap12:operation style="document" soapAction="transform" soapActionRequired="false"/>
+            <wsdl:input>
+                <soap12:body use="literal" namespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" namespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
