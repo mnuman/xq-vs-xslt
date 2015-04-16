@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="true" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="SBprojectXqXslt/XqXslt"/>
+            <con:binding>
+                <con:name>transform_bind</con:name>
+                <con:namespace>http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f574dee.N44b01665.0.14cbe0ad4ee.N7fff">
+            <con:stage id="_StageId-N3f574dee.19fe342.0.14cc3428d68.N7f62" name="SetResourceName">
+                <con:context>
+                    <con1:userNsDecl prefix="urn" namespace="urn:milconuman:schemas:xqxslt"/>
+                </con:context>
+                <con:actions>
+                    <con2:assign varName="transformationResourceName">
+                        <con1:id>_ActionId-N3f574dee.N2c46e212.0.14cbe33135c.N7ff5</con1:id>
+                        <con2:expr>
+                            <con1:xqueryText>concat('SBprojectXqXslt/XForm/', data($body/urn:TransformationMessage/urn:TestCase))</con1:xqueryText>
+                        </con2:expr>
+                    </con2:assign>
+                    <con2:insert varName="body">
+                        <con1:id>_ActionId-N3f574dee.Na5720ea.0.14cc3732965.N7ffe</con1:id>
+                        <con2:location>
+                            <con1:xpathText>./urn:TransformationMessage/urn:Payload</con1:xpathText>
+                        </con2:location>
+                        <con2:where>before</con2:where>
+                        <con2:expr>
+                            <con1:xqueryText>&lt;urn:TransformationResource>{$transformationResourceName}&lt;/urn:TransformationResource></con1:xqueryText>
+                        </con2:expr>
+                    </con2:insert>
+                    <con2:assign varName="xml_DynamicRouteToPipeline">
+                        <con1:id>_ActionId-N3f574dee.N12d47b99.0.14cc34d6113.N7e2a</con1:id>
+                        <con2:expr>
+                            <con1:xqueryText>&lt;ctx:route>
+  &lt;ctx:pipeline>{dvm:lookup("SBprojectXqXslt/RoutingDestination", "Code", data($body/urn:TransformationMessage/urn:TransformationLanguage), "Destination", "")}&lt;/ctx:pipeline>
+&lt;/ctx:route></con1:xqueryText>
+                        </con2:expr>
+                    </con2:assign>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f574dee.N44b01665.0.14cbe0ad4ee.N7ffe"/>
+        <con:flow>
+            <con:pipeline-node name="ppTC1">
+                <con:request>request-N3f574dee.N44b01665.0.14cbe0ad4ee.N7fff</con:request>
+                <con:response>response-N3f574dee.N44b01665.0.14cbe0ad4ee.N7ffe</con:response>
+            </con:pipeline-node>
+            <con:route-node name="RouteNode1">
+                <con:context/>
+                <con:actions>
+                    <con3:dynamic-route>
+                        <con1:id>_ActionId-N3f574dee.N12d47b99.0.14cc34d6113.N7e2d</con1:id>
+                        <con3:service>
+                            <con1:xqueryText>$xml_DynamicRouteToPipeline</con1:xqueryText>
+                        </con3:service>
+                        <con3:outboundTransform/>
+                        <con3:responseTransform/>
+                    </con3:dynamic-route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

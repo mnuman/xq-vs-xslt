@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d74d8b11-82a9-4097-9c21-8d757277ac00" activeEnvironment="Default" name="FixedVsDynamic" resourceRoot="" soapui-version="5.1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5f2a3c05-c7a5-4717-a9e3-2b4954001f6e" wsaVersion="NONE" name="transform_bind" type="wsdl" bindingName="{http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt}transform_bind" soapVersion="1_2" anonymous="optional" definition="http://soa2admin2.example.com:8011/mainTransform?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://soa2admin2.example.com:8011/mainTransform?wsdl"><con:part><con:url>http://soa2admin2.example.com:8011/mainTransform?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions name="XqXslt" targetNamespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="urn:milconuman:schemas:xqxslt" xmlns:WL5G3N2="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:inp1="urn:milconuman:schemas:xqxslt" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="urn:milconuman:schemas:xqxslt" schemaLocation="http://soa2admin2.example.com:8011/mainTransform?SCHEMA%2FSBprojectXqXslt%2FXqXslt"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="requestMessage">
+    <WL5G3N0:part element="WL5G3N1:TransformationMessage" name="input"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="replyMessage">
+    <WL5G3N0:part element="WL5G3N1:TransformationMessage" name="output"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="transform_ptt">
+    <WL5G3N0:operation name="transform">
+      <WL5G3N0:input message="WL5G3N2:requestMessage"/>
+      <WL5G3N0:output message="WL5G3N2:replyMessage"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="transform_bind" type="WL5G3N2:transform_ptt">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="transform">
+      <WL5G3N3:operation soapAction="transform" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body namespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body namespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="transform_bindQSService">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N2:transform_bind" name="transform_bindQSPort">
+      <WL5G3N3:address location="http://soa2admin2.example.com:8011/mainTransform"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://soa2admin2.example.com:8011/mainTransform?SCHEMA%2FSBprojectXqXslt%2FXqXslt</con:url><con:content><![CDATA[<xsd:schema targetNamespace="urn:milconuman:schemas:xqxslt" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xqx="urn:milconuman:schemas:xqxslt">
+  <xsd:element name="TransformationMessage">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="TestCase" type="xsd:string"/>
+        <xsd:element name="TransformationLanguage" type="xqx:tTransformation"/>
+        <xsd:element name="TransformationResource" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Payload">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:any namespace="##any" processContents="skip"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="tTransformation">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="XQUE">
+        <!--Regular (fixed) XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="XSLT">
+        <!--Regular (fixed) XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="DXQU">
+        <!--Dynamic XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="DXSL">
+        <!--Dynamic XSLT resource-->
+      </xsd:enumeration>
+      <xsd:length value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint></con:endpoints><con:operation id="a53d0818-3ee3-481d-94b5-ea5acaa29a68" isOneWay="false" action="transform" name="transform" bindingOperationName="transform" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c6789c05-f8b4-4813-95dc-53ea0986882f" name="XQuery"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>XQUE</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="b7819387-3119-46c6-bc38-cdd58ecbee48" name="XSLT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>XSLT</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="08aa1b23-0d27-4999-a463-102a1d177391" name="Dynamic XQuery"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="26264783-1443-48c8-8854-46939d8b5d66" name="Dynamic XSLT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="1227cb0e-0013-447c-823c-5361037ad9f8" name="TestSuite: compare Results"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b891dc55-3273-4486-8ec4-cec84878367c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="transform TestCase" searchProperties="true"><con:description>Simple testcase, comparing the results to be all equal (except for the source attribute)</con:description><con:settings/><con:testStep type="request" id="76d6c80d-9e98-442b-b861-a6f863cba0ae" name="XQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="XQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="326181c6-c9ff-4833-aec5-41ef9f2cdecd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>XQUE</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="XPath Match" id="a9b33dac-0bbd-473f-bccb-0e9f4be2ee31" name="XPath Match"><con:configuration><path>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace urn='urn:milconuman:schemas:xqxslt';
+//Orders</path><content><![CDATA[<Orders source="XQUE" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="b1363ce5-b1dd-48f4-9fce-76d9b30896c0" name="XSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="XSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6dfc34ba-26eb-4f4d-bc53-7e35c759aab2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>XSLT</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="XPath Match" id="bba6d28f-c52d-420d-9c20-71638827b1d0" name="XPath Match"><con:configuration><path>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace urn='urn:milconuman:schemas:xqxslt';
+//Orders</path><content><![CDATA[<Orders source="XSLT" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="d60cb1ba-92ce-4a4e-abb4-e846fc699200" name="Dynamic XQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="Dynamic XQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="aca28c5c-2287-4e7e-94bf-6b60a273cd57"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="XPath Match" id="e0420ea0-8509-477c-91ef-5d84e0c0b5cc" name="XPath Match"><con:configuration><path>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace urn='urn:milconuman:schemas:xqxslt';
+//Orders</path><content><![CDATA[<Orders source="XQUE" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="6e799505-0d2d-4d00-8938-b9e61bc5f21a" name="Dynamic XSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="Dynamic XSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="8ca299c1-e303-4329-8951-898b5ce27059"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="XPath Match" id="47b1779b-21c4-4217-bc6c-0fc8f407113b" name="XPath Match"><con:configuration><path>//Orders</path><content><![CDATA[<Orders source="XSLT" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="db5960ae-6cb3-4aa0-9838-313fa9b443b3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Compare static-vs-dynamic" searchProperties="true"><con:description>No assertions, just compare average times</con:description><con:settings/><con:testStep type="request" id="69624aac-c810-4cc6-b300-ed7fb2795d10" name="XQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="XQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="326181c6-c9ff-4833-aec5-41ef9f2cdecd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>XQUE</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="5934ee01-5045-4e6a-a816-b31734ab7890" name="XSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="XSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6dfc34ba-26eb-4f4d-bc53-7e35c759aab2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>XSLT</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="47669028-f95b-45f2-8937-3225c3cfab3d" name="Dynamic XQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="Dynamic XQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="aca28c5c-2287-4e7e-94bf-6b60a273cd57"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="09d318f0-7983-4b68-a553-c844ac7350d0" name="Dynamic XSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="Dynamic XSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="8ca299c1-e303-4329-8951-898b5ce27059"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+            <table ID="orders">
+               <T>
+                  <O_ORDERKEY>1</O_ORDERKEY>
+                  <O_CUSTKEY>370</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>172799.49</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-01-02</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000951</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>2</O_ORDERKEY>
+                  <O_CUSTKEY>781</O_CUSTKEY>
+                  <O_ORDERSTATUS>O</O_ORDERSTATUS>
+                  <O_TOTALPRICE>38426.09</O_TOTALPRICE>
+                  <O_ORDERDATE>1996-12-01</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000880</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>quickly regular depend</O_COMMENT>
+               </T>
+               <T>
+                  <O_ORDERKEY>3</O_ORDERKEY>
+                  <O_CUSTKEY>1234</O_CUSTKEY>
+                  <O_ORDERSTATUS>F</O_ORDERSTATUS>
+                  <O_TOTALPRICE>205654.30</O_TOTALPRICE>
+                  <O_ORDERDATE>1993-10-14</O_ORDERDATE>
+                  <O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY>
+                  <O_CLERK>Clerk#000000955</O_CLERK>
+                  <O_SHIP-PRIORITY>0</O_SHIP-PRIORITY>
+                  <O_COMMENT>deposits alongside of the dependencies are slowly about</O_COMMENT>
+               </T>
+            </table>
+            table>
+         </urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="e5aba033-a56e-4fe5-b7d7-c2edad60604b" name="loadTest - all - simple"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting><con:setting id="HttpSettings@include_request_in_time_taken">false</con:setting><con:setting id="HttpSettings@include_response_in_time_taken">false</con:setting></con:settings><con:threadCount>1</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>0</testDelay><randomFactor>0.0</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:statisticsLogFolder>/tmp</con:statisticsLogFolder><con:statisticsLogInterval>0</con:statisticsLogInterval><con:logStatisticsOnThreadChange>false</con:logStatisticsOnThreadChange><con:cancelOnReachedLimit>false</con:cancelOnReachedLimit><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:updateStatisticsPerTestStep>false</con:updateStatisticsPerTestStep></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
