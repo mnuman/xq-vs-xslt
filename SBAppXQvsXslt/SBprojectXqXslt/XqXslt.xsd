@@ -9,6 +9,7 @@
       <xsd:sequence>
         <xsd:element name="TestCase" type="xsd:string"/>
         <xsd:element name="TransformationLanguage" type="xqx:tTransformation"/>
+        <xsd:element name="TransformationResource" type="xsd:string" minOccurs="0"/>
         <xsd:element name="Payload">
           <xsd:complexType>
             <xsd:sequence>
@@ -21,18 +22,19 @@
   </xsd:element>
   <xsd:simpleType name="tTransformation">
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="XQUERY">
+      <xsd:enumeration value="XQUE">
         <!--Regular (fixed) XQuery resource-->
       </xsd:enumeration>
-      <xsd:enumeration value="XSLT#">
+      <xsd:enumeration value="XSLT">
         <!--Regular (fixed) XQuery resource-->
       </xsd:enumeration>
-      <xsd:enumeration value="DYXQU">
+      <xsd:enumeration value="DXQU">
         <!--Dynamic XQuery resource-->
       </xsd:enumeration>
-      <xsd:enumeration value="DYXSL">
+      <xsd:enumeration value="DXSL">
         <!--Dynamic XSLT resource-->
       </xsd:enumeration>
+      <xsd:length value="4"/>
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>
