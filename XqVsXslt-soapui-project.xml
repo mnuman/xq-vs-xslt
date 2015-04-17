@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="013ebf42-335f-417e-b6a3-3157978b377d" activeEnvironment="Default" name="XqVsXslt" resourceRoot="" soapui-version="5.1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="190e5499-ba5c-44e6-918d-93773ee12d2f" wsaVersion="NONE" name="transform_bind" type="wsdl" bindingName="{http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt}transform_bind" soapVersion="1_2" anonymous="optional" definition="http://soa2admin2.example.com:8011/mainTransform?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://soa2admin2.example.com:8011/mainTransform?wsdl"><con:part><con:url>http://soa2admin2.example.com:8011/mainTransform?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions name="XqXslt" targetNamespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="urn:milconuman:schemas:xqxslt" xmlns:WL5G3N2="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:inp1="urn:milconuman:schemas:xqxslt" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="urn:milconuman:schemas:xqxslt" schemaLocation="http://soa2admin2.example.com:8011/mainTransform?SCHEMA%2FSBprojectXqXslt%2FXqXslt"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="requestMessage">
+    <WL5G3N0:part element="WL5G3N1:TransformationMessage" name="input"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="replyMessage">
+    <WL5G3N0:part element="WL5G3N1:TransformationMessage" name="output"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="transform_ptt">
+    <WL5G3N0:operation name="transform">
+      <WL5G3N0:input message="WL5G3N2:requestMessage"/>
+      <WL5G3N0:output message="WL5G3N2:replyMessage"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="transform_bind" type="WL5G3N2:transform_ptt">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="transform">
+      <WL5G3N3:operation soapAction="transform" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body namespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body namespace="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="transform_bindQSService">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N2:transform_bind" name="transform_bindQSPort">
+      <WL5G3N3:address location="http://soa2admin2.example.com:8011/mainTransform"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://soa2admin2.example.com:8011/mainTransform?SCHEMA%2FSBprojectXqXslt%2FXqXslt</con:url><con:content><![CDATA[<xsd:schema targetNamespace="urn:milconuman:schemas:xqxslt" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xqx="urn:milconuman:schemas:xqxslt">
+  <xsd:element name="TransformationMessage">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="TestCase" type="xsd:string"/>
+        <xsd:element name="TransformationLanguage" type="xqx:tTransformation"/>
+        <xsd:element name="TransformationResource" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Payload">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:any namespace="##any" processContents="skip"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="tTransformation">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="XQUE">
+        <!--Regular (fixed) XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="XSLT">
+        <!--Regular (fixed) XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="DXQU">
+        <!--Dynamic XQuery resource-->
+      </xsd:enumeration>
+      <xsd:enumeration value="DXSL">
+        <!--Dynamic XSLT resource-->
+      </xsd:enumeration>
+      <xsd:length value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint></con:endpoints><con:operation id="928ca683-98a9-4fb3-965f-9899cae83eb5" isOneWay="false" action="transform" name="transform" bindingOperationName="transform" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="740429ae-dee7-4d13-bdf4-8e4612f4db38" name="TC1-DynamicXQuery"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="f37f2a92-875f-4976-8e19-952b251d9385" name="TC1-DynamicXSLT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="007b9bcb-a1e1-4542-b306-8426960e62eb" name="TC2-DynamicXQuery"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC2</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="811079fe-7d31-4600-879f-6f7e374ab80c" name="TC2-DynamicXSLT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC2</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="45fc37aa-c437-4223-a77a-b90a3600fb63" name="Test-result-equality"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="3e1db9a2-b299-4c04-95ff-c6876171b388" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC1" searchProperties="true"><con:settings/><con:testStep type="request" id="ad8c89b3-36c7-47e3-8f1e-edada7437538" name="transform - TC1-DynamicXQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="transform - TC1-DynamicXQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="01d2cf53-0c05-4f7a-b076-ab20cb4a1da1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a2d3fbab-bdc7-4174-8d44-08282562abb3" name="SOAP Response"/><con:assertion type="XPath Match" id="2899a348-c287-40d1-b2ea-cf77ae67e05e" name="XPath Match"><con:configuration><path>//Orders</path><content><![CDATA[<Orders source="XQUE" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>4</OrderNumber>
+    <CustomerNumber>1369</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>56000.91</TotalPrice>
+    <OrderDate>1995-10-11</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000124</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>final requests detect slyly across the blithely bold pinto beans. eve</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>5</OrderNumber>
+    <CustomerNumber>445</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>105367.67</TotalPrice>
+    <OrderDate>1994-07-30</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000925</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>even deposits cajole furiously. quickly spe</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>6</OrderNumber>
+    <CustomerNumber>557</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>45523.10</TotalPrice>
+    <OrderDate>1992-02-21</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000058</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironically bold asymptotes sleep blithely beyond the regular, clos</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>7</OrderNumber>
+    <CustomerNumber>392</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>271885.66</TotalPrice>
+    <OrderDate>1996-01-10</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000470</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironic, regular deposits are. ironic foxes sl</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>32</OrderNumber>
+    <CustomerNumber>1301</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>198665.57</TotalPrice>
+    <OrderDate>1995-07-16</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000616</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>slyly final foxes are slyly. packag</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>33</OrderNumber>
+    <CustomerNumber>670</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>146567.24</TotalPrice>
+    <OrderDate>1993-10-27</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000409</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>packages maintain about the deposits; foxes hang after</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>34</OrderNumber>
+    <CustomerNumber>611</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>73315.48</TotalPrice>
+    <OrderDate>1998-07-21</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000223</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly express asymptotes use. carefully final packages sleep f</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>35</OrderNumber>
+    <CustomerNumber>1276</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>194641.93</TotalPrice>
+    <OrderDate>1995-10-23</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000259</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>fluffily regular pinto beans</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>36</OrderNumber>
+    <CustomerNumber>1153</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>42011.04</TotalPrice>
+    <OrderDate>1995-11-03</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000358</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>carefully ironic accounts nag</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="ee2d07f6-033e-4327-948d-b50d8c76ddb5" name="transform - TC1-DynamicXSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="transform - TC1-DynamicXSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="7b69d91e-8646-42d5-9cd6-f1b4060ef2e8"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e810a081-e37c-4f60-923c-8d7ba3e7fde5" name="SOAP Response"/><con:assertion type="XPath Match" id="17612867-e4b8-42dd-8ac6-0a2f4c5e8018" name="XPath Match"><con:configuration><path>//Orders</path><content><![CDATA[<Orders source="XSLT" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>4</OrderNumber>
+    <CustomerNumber>1369</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>56000.91</TotalPrice>
+    <OrderDate>1995-10-11</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000124</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>final requests detect slyly across the blithely bold pinto beans. eve</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>5</OrderNumber>
+    <CustomerNumber>445</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>105367.67</TotalPrice>
+    <OrderDate>1994-07-30</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000925</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>even deposits cajole furiously. quickly spe</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>6</OrderNumber>
+    <CustomerNumber>557</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>45523.10</TotalPrice>
+    <OrderDate>1992-02-21</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000058</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironically bold asymptotes sleep blithely beyond the regular, clos</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>7</OrderNumber>
+    <CustomerNumber>392</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>271885.66</TotalPrice>
+    <OrderDate>1996-01-10</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000470</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironic, regular deposits are. ironic foxes sl</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>32</OrderNumber>
+    <CustomerNumber>1301</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>198665.57</TotalPrice>
+    <OrderDate>1995-07-16</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000616</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>slyly final foxes are slyly. packag</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>33</OrderNumber>
+    <CustomerNumber>670</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>146567.24</TotalPrice>
+    <OrderDate>1993-10-27</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000409</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>packages maintain about the deposits; foxes hang after</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>34</OrderNumber>
+    <CustomerNumber>611</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>73315.48</TotalPrice>
+    <OrderDate>1998-07-21</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000223</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly express asymptotes use. carefully final packages sleep f</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>35</OrderNumber>
+    <CustomerNumber>1276</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>194641.93</TotalPrice>
+    <OrderDate>1995-10-23</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000259</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>fluffily regular pinto beans</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>36</OrderNumber>
+    <CustomerNumber>1153</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>42011.04</TotalPrice>
+    <OrderDate>1995-11-03</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000358</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>carefully ironic accounts nag</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0ba1c259-1b54-456c-9bbe-2dd1a384faf6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC2" searchProperties="true"><con:settings/><con:testStep type="request" id="04bd743a-31aa-454e-ac2d-176a3f88a232" name="transform - TC2-DynamicXQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="transform - TC2-DynamicXQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f0d2e7cd-3300-4409-8404-c81ea89b4c44"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC2</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e3c0e887-ad17-404b-971e-bf5fec869e2d" name="SOAP Response"/><con:assertion type="XPath Match" id="4ec74b5d-9774-46de-856d-b082cfe53ad9" name="XPath Match"><con:configuration><path>//Orders</path><content><![CDATA[<Orders source="XQUE" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>4</OrderNumber>
+    <CustomerNumber>1369</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>56000.91</TotalPrice>
+    <OrderDate>1995-10-11</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000124</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>final requests detect slyly across the blithely bold pinto beans. eve</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>5</OrderNumber>
+    <CustomerNumber>445</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>105367.67</TotalPrice>
+    <OrderDate>1994-07-30</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000925</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>even deposits cajole furiously. quickly spe</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>6</OrderNumber>
+    <CustomerNumber>557</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>45523.10</TotalPrice>
+    <OrderDate>1992-02-21</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000058</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironically bold asymptotes sleep blithely beyond the regular, clos</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>35</OrderNumber>
+    <CustomerNumber>1276</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>194641.93</TotalPrice>
+    <OrderDate>1995-10-23</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000259</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>fluffily regular pinto beans</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>34</OrderNumber>
+    <CustomerNumber>611</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>73315.48</TotalPrice>
+    <OrderDate>1998-07-21</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000223</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly express asymptotes use. carefully final packages sleep f</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>33</OrderNumber>
+    <CustomerNumber>670</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>146567.24</TotalPrice>
+    <OrderDate>1993-10-27</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000409</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>packages maintain about the deposits; foxes hang after</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>32</OrderNumber>
+    <CustomerNumber>1301</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>198665.57</TotalPrice>
+    <OrderDate>1995-07-16</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000616</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>slyly final foxes are slyly. packag</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>7</OrderNumber>
+    <CustomerNumber>392</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>271885.66</TotalPrice>
+    <OrderDate>1996-01-10</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000470</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironic, regular deposits are. ironic foxes sl</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>36</OrderNumber>
+    <CustomerNumber>1153</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>42011.04</TotalPrice>
+    <OrderDate>1995-11-03</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000358</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>carefully ironic accounts nag</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="9891c175-73f5-4aa6-9f39-9dfa283a2a9c" name="transform - TC2-DynamicXSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="transform - TC2-DynamicXSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9dd6fbe0-9071-471d-90a9-15165f06738c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC2</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload>
+<table ID="orders">
+<T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T>
+<T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T>
+<T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T>
+<T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T>
+<T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T>
+<T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T>
+<T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T>
+<T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T>
+<T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T>
+<T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T>
+<T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T>
+<T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T>
+</table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="39b82158-6b4e-4c31-9678-5d6e0e9371d4" name="SOAP Response"/><con:assertion type="XPath Match" id="11150b47-08bd-4198-876a-5f63d3a2923f" name="XPath Match"><con:configuration><path>//Orders</path><content><![CDATA[<Orders source="XSLT" xmlns:urn="urn:milconuman:schemas:xqxslt" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <Order>
+    <OrderNumber>4</OrderNumber>
+    <CustomerNumber>1369</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>56000.91</TotalPrice>
+    <OrderDate>1995-10-11</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000124</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>final requests detect slyly across the blithely bold pinto beans. eve</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>5</OrderNumber>
+    <CustomerNumber>445</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>105367.67</TotalPrice>
+    <OrderDate>1994-07-30</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000925</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>even deposits cajole furiously. quickly spe</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>1</OrderNumber>
+    <CustomerNumber>370</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>172799.49</TotalPrice>
+    <OrderDate>1996-01-02</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000951</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>blithely final dolphins solve-- blithely blithe packages nag blith</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>3</OrderNumber>
+    <CustomerNumber>1234</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>205654.30</TotalPrice>
+    <OrderDate>1993-10-14</OrderDate>
+    <OrderPriority>5-LOW</OrderPriority>
+    <Clerk>Clerk#000000955</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>deposits alongside of the dependencies are slowly about</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>6</OrderNumber>
+    <CustomerNumber>557</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>45523.10</TotalPrice>
+    <OrderDate>1992-02-21</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000058</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironically bold asymptotes sleep blithely beyond the regular, clos</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>35</OrderNumber>
+    <CustomerNumber>1276</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>194641.93</TotalPrice>
+    <OrderDate>1995-10-23</OrderDate>
+    <OrderPriority>4-NOT SPECIFIED</OrderPriority>
+    <Clerk>Clerk#000000259</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>fluffily regular pinto beans</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>34</OrderNumber>
+    <CustomerNumber>611</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>73315.48</TotalPrice>
+    <OrderDate>1998-07-21</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000223</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly express asymptotes use. carefully final packages sleep f</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>33</OrderNumber>
+    <CustomerNumber>670</CustomerNumber>
+    <OrderStatus>F</OrderStatus>
+    <TotalPrice>146567.24</TotalPrice>
+    <OrderDate>1993-10-27</OrderDate>
+    <OrderPriority>3-MEDIUM</OrderPriority>
+    <Clerk>Clerk#000000409</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>packages maintain about the deposits; foxes hang after</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>32</OrderNumber>
+    <CustomerNumber>1301</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>198665.57</TotalPrice>
+    <OrderDate>1995-07-16</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000616</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>slyly final foxes are slyly. packag</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>7</OrderNumber>
+    <CustomerNumber>392</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>271885.66</TotalPrice>
+    <OrderDate>1996-01-10</OrderDate>
+    <OrderPriority>2-HIGH</OrderPriority>
+    <Clerk>Clerk#000000470</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>ironic, regular deposits are. ironic foxes sl</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>2</OrderNumber>
+    <CustomerNumber>781</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>38426.09</TotalPrice>
+    <OrderDate>1996-12-01</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000880</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>quickly regular depend</Comment>
+  </Order>
+  <Order>
+    <OrderNumber>36</OrderNumber>
+    <CustomerNumber>1153</CustomerNumber>
+    <OrderStatus>O</OrderStatus>
+    <TotalPrice>42011.04</TotalPrice>
+    <OrderDate>1995-11-03</OrderDate>
+    <OrderPriority>1-URGENT</OrderPriority>
+    <Clerk>Clerk#000000358</Clerk>
+    <ShipPriority>0</ShipPriority>
+    <Comment>carefully ironic accounts nag</Comment>
+  </Order>
+</Orders>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="f3db7ad6-6fc9-40be-9349-31fa12257ad8" name="Test-relative-performance"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="3b48b6b1-e53e-4a2c-9921-ff3b55a8a58d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC1-6147" searchProperties="true"><con:description>Effective payload to transform: 6147 bytes</con:description><con:settings/><con:testStep type="request" id="080d3328-c962-4ddb-8d32-308eb074a19a" name="transform - TC1-DynamicXQuery"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="transform - TC1-DynamicXQuery" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2b07103f-1986-4609-bed7-030edeba8fe9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXQU</urn:TransformationLanguage>
+         <urn:Payload><table ID="orders"><T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T><T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T><T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T><T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T><T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T><T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T><T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T><T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T><T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T><T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T><T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T><T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T></table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="6413a7d2-209e-4488-a152-954a0c0ebf1f" name="transform - TC1-DynamicXSLT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>transform_bind</con:interface><con:operation>transform</con:operation><con:request name="transform - TC1-DynamicXSLT" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2c38fa34-58d5-4f27-a010-7b498fbed0af"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/mainTransform</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:milconuman:schemas:xqxslt">
+   <soap:Header/>
+   <soap:Body>
+      <urn:TransformationMessage>
+         <urn:TestCase>TC1</urn:TestCase>
+         <urn:TransformationLanguage>DXSL</urn:TransformationLanguage>
+         <urn:Payload><table ID="orders"><T><O_ORDERKEY>1</O_ORDERKEY><O_CUSTKEY>370</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>172799.49</O_TOTALPRICE><O_ORDERDATE>1996-01-02</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000951</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>blithely final dolphins solve-- blithely blithe packages nag blith</O_COMMENT></T><T><O_ORDERKEY>2</O_ORDERKEY><O_CUSTKEY>781</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>38426.09</O_TOTALPRICE><O_ORDERDATE>1996-12-01</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000880</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly regular depend</O_COMMENT></T><T><O_ORDERKEY>3</O_ORDERKEY><O_CUSTKEY>1234</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>205654.30</O_TOTALPRICE><O_ORDERDATE>1993-10-14</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000955</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>deposits alongside of the dependencies are slowly about </O_COMMENT></T><T><O_ORDERKEY>4</O_ORDERKEY><O_CUSTKEY>1369</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>56000.91</O_TOTALPRICE><O_ORDERDATE>1995-10-11</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000124</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>final requests detect slyly across the blithely bold pinto beans. eve</O_COMMENT></T><T><O_ORDERKEY>5</O_ORDERKEY><O_CUSTKEY>445</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>105367.67</O_TOTALPRICE><O_ORDERDATE>1994-07-30</O_ORDERDATE><O_ORDER-PRIORITY>5-LOW</O_ORDER-PRIORITY><O_CLERK>Clerk#000000925</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>even deposits cajole furiously. quickly spe</O_COMMENT></T><T><O_ORDERKEY>6</O_ORDERKEY><O_CUSTKEY>557</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>45523.10</O_TOTALPRICE><O_ORDERDATE>1992-02-21</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000058</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironically bold asymptotes sleep blithely beyond the regular, clos</O_COMMENT></T><T><O_ORDERKEY>7</O_ORDERKEY><O_CUSTKEY>392</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>271885.66</O_TOTALPRICE><O_ORDERDATE>1996-01-10</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000470</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>ironic, regular deposits are. ironic foxes sl</O_COMMENT></T><T><O_ORDERKEY>32</O_ORDERKEY><O_CUSTKEY>1301</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>198665.57</O_TOTALPRICE><O_ORDERDATE>1995-07-16</O_ORDERDATE><O_ORDER-PRIORITY>2-HIGH</O_ORDER-PRIORITY><O_CLERK>Clerk#000000616</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>slyly final foxes are slyly. packag</O_COMMENT></T><T><O_ORDERKEY>33</O_ORDERKEY><O_CUSTKEY>670</O_CUSTKEY><O_ORDERSTATUS>F</O_ORDERSTATUS><O_TOTALPRICE>146567.24</O_TOTALPRICE><O_ORDERDATE>1993-10-27</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000409</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>packages maintain about the deposits; foxes hang after </O_COMMENT></T><T><O_ORDERKEY>34</O_ORDERKEY><O_CUSTKEY>611</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>73315.48</O_TOTALPRICE><O_ORDERDATE>1998-07-21</O_ORDERDATE><O_ORDER-PRIORITY>3-MEDIUM</O_ORDER-PRIORITY><O_CLERK>Clerk#000000223</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>quickly express asymptotes use. carefully final packages sleep f</O_COMMENT></T><T><O_ORDERKEY>35</O_ORDERKEY><O_CUSTKEY>1276</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>194641.93</O_TOTALPRICE><O_ORDERDATE>1995-10-23</O_ORDERDATE><O_ORDER-PRIORITY>4-NOT SPECIFIED</O_ORDER-PRIORITY><O_CLERK>Clerk#000000259</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>fluffily regular pinto beans </O_COMMENT></T><T><O_ORDERKEY>36</O_ORDERKEY><O_CUSTKEY>1153</O_CUSTKEY><O_ORDERSTATUS>O</O_ORDERSTATUS><O_TOTALPRICE>42011.04</O_TOTALPRICE><O_ORDERDATE>1995-11-03</O_ORDERDATE><O_ORDER-PRIORITY>1-URGENT</O_ORDER-PRIORITY><O_CLERK>Clerk#000000358</O_CLERK><O_SHIP-PRIORITY>0</O_SHIP-PRIORITY><O_COMMENT>carefully ironic accounts nag</O_COMMENT></T></table></urn:Payload>
+      </urn:TransformationMessage>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/SBAppXQvsXslt/SBprojectXqXslt/XqXslt/transform_ptt/transformRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="6ebbc8a2-46eb-46fa-a4f4-ae367708922d" name="load"><con:settings/><con:threadCount>1</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>20000</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>40</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>0</testDelay><randomFactor>0.0</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:statisticsLogFolder/><con:statisticsLogInterval>0</con:statisticsLogInterval><con:logStatisticsOnThreadChange>false</con:logStatisticsOnThreadChange><con:cancelOnReachedLimit>false</con:cancelOnReachedLimit><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:updateStatisticsPerTestStep>false</con:updateStatisticsPerTestStep></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
