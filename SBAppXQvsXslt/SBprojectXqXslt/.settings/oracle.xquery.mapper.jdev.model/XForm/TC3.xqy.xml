@@ -1,0 +1,6 @@
+<view_states>
+   <function arity="1" name="func">
+      <source_tree_view last.visible.row="0" last.visible.path="/sourceRoot[[0]]/input[[0]]" expanded.paths="" selected.paths="" first.visible.path="/sourceRoot[[0]]/input[[0]]" first.visible.row="0"/>
+      <target_tree_view last.visible.row="0" last.visible.path="/TargetRoot[[0]]/Orders[[0]]" expanded.paths="" selected.paths="" first.visible.path="/TargetRoot[[0]]/Orders[[0]]" first.visible.row="0"/>
+   </function>
+</view_states>
