@@ -12,68 +12,68 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gComponent name="plDXQU">
-        <dgm:body borderWidth="2" arcRad="20" X="240" Y="305" width="130" height="61">
+    <dgm:gComponent name="plDispatcher">
+        <dgm:body borderWidth="2" arcRad="20" X="226" Y="398" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="230" Y="298" width="150" height="77">
+        <dgm:shadow arcRad="20" X="216" Y="391" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="plDXQU">
+        <dgm:body borderWidth="2" arcRad="20" X="226" Y="305" width="130" height="61">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="216" Y="298" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="plDXSL">
-        <dgm:body borderWidth="2" arcRad="20" X="240" Y="212" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="226" Y="212" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="230" Y="205" width="150" height="77">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
-    </dgm:gComponent>
-    <dgm:gComponent name="plFixedvsDynamic">
-        <dgm:body borderWidth="2" arcRad="20" X="240" Y="398" width="130" height="61">
-            <dgm:borderColor r="109" g="136" b="65"/>
-            <dgm:lightBgColor r="201" g="224" b="155"/>
-            <dgm:darkBgColor r="157" g="195" b="93"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="230" Y="391" width="150" height="77">
+        <dgm:shadow arcRad="20" X="216" Y="205" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="plXQUE">
-        <dgm:body borderWidth="2" arcRad="20" X="240" Y="119" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="226" Y="119" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="230" Y="112" width="150" height="77">
+        <dgm:shadow arcRad="20" X="216" Y="112" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="plXSLT">
-        <dgm:body borderWidth="2" arcRad="20" X="240" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="226" Y="26" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="230" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="216" Y="19" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
-    <dgm:gWireLink source="psFixedVsDynamic" target="plFixedvsDynamic/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="423" X2="230" Y2="423"/>
+    <dgm:gWireLink source="psFixedVsDynamic" target="plDispatcher/__service__" width="2">
+        <dgm:gSegment X1="168" Y1="423" X2="216" Y2="423"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
